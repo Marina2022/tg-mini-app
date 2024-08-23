@@ -73,7 +73,7 @@ const ProductList = () => {
 
   const mainBtnClickHandler = useCallback(() => {
     const data = {products, query_id, username: tg.initDataUnsafe?.user?.username}
-    axios.post('https://mardevcodd.ru:8000/cart', {data})
+    axios.post('https://mardevcodd.ru/cart', {data})
   }, [products, tg])
 
 
