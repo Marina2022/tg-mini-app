@@ -1,17 +1,23 @@
 import s from './Header.module.scss';
+import useTelegram from "../hooks/useTelegram.js";
+import Button from "../Button/Button.jsx";
 
 const Header = () => {
 
-  const tg = window.Telegram.WebApp
+  const {tg, close} = useTelegram()
   
   return (
     <header className={s.header}>
-      <div className={s.colored}>
-        Привет, {tg.initDataUnsafe.user.first_name}        
-      </div>
-      <button onClick={() => tg.close()} className={s.btn}>
+
+      {
+        tg.initDataUnsafe?.user?.username && <div className={s.colored}>
+          Привет, {tg.initDataUnsafe?.user?.username}!
+        </div>
+      }
+
+      <Button onClick={close}>
         Close
-      </button>
+      </Button>
     </header>
   );
 };
