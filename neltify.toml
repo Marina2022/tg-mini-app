@@ -1,11 +1,8 @@
 [build]
-  # Команда для сборки вашего React приложения
-  command = "npm run build"
-  # Папка, где размещаются статические файлы после сборки
   publish = "dist"
+  command = "vite build"
 
 [[redirects]]
-  # Обработка маршрутизации для вашего SPA
   from = "/*"
   to = "/index.html"
   status = 200
